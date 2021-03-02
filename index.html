@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link href="styles/styles.css" rel="stylesheet">
-    <link href="scripts/calculator.js" rel="script">
+    <script src="scripts/calculator.js"></script>
     <title>Calculator</title>
 </head>
 
@@ -21,12 +21,12 @@
 </div>
 
 <div>
-    <button type="submit">=</button>
-    <button type="reset">Clear</button>
+    <button type="submit" onclick="run()">=</button>
+    <button type="reset" onclick="clear()">Clear</button>
 </div>
 
 <div>
-    <text>Your result will appear here</text>
+    <text id="answer">Your result will appear here</text>
 </div>
 
 </body>
