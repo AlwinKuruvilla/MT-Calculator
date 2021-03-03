@@ -48,13 +48,19 @@ function calculate() {
 }
 
 function run() {
+
     getInput();
-    console.log(calculate());
-    document.getElementById('answer').innerText = calculate() ;
+    let answer = calculate()
+    if(isNaN(answer)) {
+        document.getElementById('answer').innerText = "Please enter numbers into the text box";
+    } else {
+        document.getElementById('answer').innerText = answer ;
+    }
 }
 
-function clear() {
-    number1 = "";
-    number2 = "";
-    selectedOperation.checked = undefined;
+function clearForm() {
+    document.getElementById("first-number-box").value = ""
+    document.getElementById("second-number-box").value = "";
+    document.getElementById("add").checked = true;
+    document.getElementById("answer").innerText = "Cleared!";
 }
