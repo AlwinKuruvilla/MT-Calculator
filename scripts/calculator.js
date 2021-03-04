@@ -33,29 +33,28 @@ function getInput() {
 function calculate() {
     let num1 = parseInt(number1);
     let num2 = parseInt(number2);
-    switch(selectedOperation) {
-        case 'add':
-            return add(num1, num2);
-        case 'subtract':
-            return subtract(num1, num2);
-        case 'multiply':
-            return multiply(num1, num2);
-        case 'divide':
-            if (num2 === 0) {
-                return 'Dividing by 0 is not allowed'
-            } return divide(num1, num2);
+    if(isNaN(num1) || isNaN(num2)) {
+        return "Please enter numbers into the text box";
+    } else {
+        switch (selectedOperation) {
+            case 'add':
+                return "The sum of " + num1 + " and " + num2 + " is " + add(num1, num2);
+            case 'subtract':
+                return "The difference of " + num1 + " and " + num2 + " is " + subtract(num1, num2);
+            case 'multiply':
+                return "The product of " + num1 + " and " + num2 + " is " + multiply(num1, num2);
+            case 'divide':
+                if (num2 === 0) {
+                    return 'Dividing by 0 is not allowed'
+                }
+                return "The quotient of " + num1 + " and " + num2 + " is " + divide(num1, num2);
+        }
     }
 }
 
 function run() {
-
     getInput();
-    let answer = calculate()
-    if(isNaN(answer)) {
-        document.getElementById('answer').innerText = "Please enter numbers into the text box";
-    } else {
-        document.getElementById('answer').innerText = answer ;
-    }
+    document.getElementById('answer').innerText = calculate();
 }
 
 function clearForm() {
